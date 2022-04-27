@@ -10,15 +10,15 @@ export const UserPageContainer: React.FC = () => {
   const { id } = useParams();
   const { users } = useAppSelector((store) => store.userReducer);
   const [userInfo, setUserInfo] = useState<IUserInfo>({
-    city: '',
-    comment: '',
-    email: '',
     name: '',
     userName: '',
-    phone: '',
+    email: '',
     street: '',
-    webSite: '',
+    city: '',
     zipCode: '',
+    phone: '',
+    webSite: '',
+    comment: '',
   });
 
   const user: IUser | undefined = users.find(
@@ -28,15 +28,15 @@ export const UserPageContainer: React.FC = () => {
   useEffect(() => {
     if (user) {
       setUserInfo({
-        city: user.address.city,
-        comment: '',
-        email: user.email,
         name: user.name,
         userName: user.username,
-        phone: user.phone,
+        email: user.email,
         street: user.address.street,
-        webSite: user.website,
+        city: user.address.city,
         zipCode: user.address.zipcode,
+        phone: user.phone,
+        webSite: user.website,
+        comment: '',
       });
     }
   }, [user]);
