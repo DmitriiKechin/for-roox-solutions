@@ -118,7 +118,7 @@ export const UserPage: React.FC<IUserPage> = (props) => {
           disabled={!isEditUser}
           onClick={() => {
             editUser(false);
-            console.log('Отправлено:', props.userInfo);
+            console.log('Отправлено:', JSON.stringify(props.userInfo));
           }}
           type="submit"
           padding="5px 6px 5px 15px"
