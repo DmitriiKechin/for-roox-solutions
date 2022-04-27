@@ -32,4 +32,5 @@ export interface IUserState {
   users: IUser[];
   isLoading: boolean;
   error: string;
+  isEditUser: boolean;
 }

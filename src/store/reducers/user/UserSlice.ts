@@ -1,23 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IUser } from '../../../types/user';
+import { IUser, IUserState } from '../../../types/user';
 import { fetchUsers } from './ActionCreators';
 
-interface UserState {
-  users: IUser[];
-  isLoading: boolean;
-  error: string;
-}
-
-const initialState: UserState = {
+const initialState: IUserState = {
   users: [],
   isLoading: false,
   error: '',
+  isEditUser: false,
 };
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    editUser: (state, action: PayloadAction<boolean>) => {
+      state.isEditUser = action.payload;
+    },
+  },
   extraReducers: {
     [fetchUsers.fulfilled.type]: (state, action: PayloadAction<IUser[]>) => {
       state.isLoading = false;
