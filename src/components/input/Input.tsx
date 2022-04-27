@@ -9,22 +9,20 @@ export const Input: React.FC<IInput> = ({
   isTextArea,
   changeHandler,
 }) => {
-  const style = disabled ? styles.input + ' ' + styles.disabled : styles.input;
-
   return (
     <div>
       <label>
         <div className={styles.name}>{name}</div>
         {isTextArea ? (
           <textarea
-            className={style + ' ' + styles.textArea}
+            className={styles.input + ' ' + styles.textArea}
             disabled={disabled}
             value={value}
             onChange={changeHandler}
           />
         ) : (
           <input
-            className={style}
+            className={styles.input}
             disabled={disabled}
             value={value}
             onChange={changeHandler}

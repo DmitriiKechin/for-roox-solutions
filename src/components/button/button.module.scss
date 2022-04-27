@@ -2,13 +2,13 @@
   background: #4b51ef;
   border-radius: 5px;
   color: white;
+
+  &:disabled {
+    color: #fff;
+    background: #afafaf;
+  }
 }
 
 .submit {
   background: #52cf4f;
-}
-
-.disabled {
-  color: #fff;
-  background: #afafaf;
 }

@@ -15,10 +15,6 @@ export const Button: React.FC<IButton> = ({
     style += ' ' + styles.submit;
   }
 
-  if (disabled) {
-    style += ' ' + styles.disabled;
-  }
-
   return (
     <button
       disabled={disabled}

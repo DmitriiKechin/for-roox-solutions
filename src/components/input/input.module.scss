@@ -7,6 +7,10 @@
   border-radius: 5px;
 
   font-size: 10px;
+
+  &:disabled {
+    color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .textArea {
@@ -15,10 +19,6 @@
   padding: 4px 9px;
 
   resize: none;
-}
-
-.disabled {
-  color: rgba(0, 0, 0, 0.3);
 }
 
 .name {
