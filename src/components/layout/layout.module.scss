@@ -1,0 +1,17 @@
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  max-width: 665px;
+  margin: auto;
+}
+
+aside {
+  width: 22.85%;
+  background: #bdbdbd;
+}
+
+main {
+  width: 77.15%;
+  position: relative;
+  background-color: #fff;
+}
