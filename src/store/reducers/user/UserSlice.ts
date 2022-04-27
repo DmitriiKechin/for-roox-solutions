@@ -16,6 +16,9 @@ export const userSlice = createSlice({
     editUser: (state, action: PayloadAction<boolean>) => {
       state.isEditUser = action.payload;
     },
+    updateUsers: (state, action: PayloadAction<IUser[]>) => {
+      state.users = action.payload;
+    },
   },
   extraReducers: {
     [fetchUsers.fulfilled.type]: (state, action: PayloadAction<IUser[]>) => {
