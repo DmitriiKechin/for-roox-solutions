@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { getErrorMessage } from '../../../helpers/function';
 import { IUser } from '../../../types/user';
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
@@ -14,7 +15,8 @@ export const fetchUsers = createAsyncThunk(
       );
       return response.data;
     } catch (e) {
-      return thunkAPI.rejectWithValue('Не удалось загрузить пользователей');
+      const message = getErrorMessage(e);
+      return thunkAPI.rejectWithValue(message);
     }
   }
 );
