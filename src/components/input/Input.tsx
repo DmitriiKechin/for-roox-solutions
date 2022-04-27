@@ -7,6 +7,8 @@ export const Input: React.FC<IInput> = ({
   disabled,
   name,
   isTextArea,
+  required,
+  type,
   changeHandler,
 }) => {
   return (
@@ -22,6 +24,8 @@ export const Input: React.FC<IInput> = ({
           />
         ) : (
           <input
+            required={required}
+            type={type}
             className={styles.input}
             disabled={disabled}
             value={value}

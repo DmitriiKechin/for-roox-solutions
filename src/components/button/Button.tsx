@@ -7,6 +7,7 @@ export const Button: React.FC<IButton> = ({
   disabled = false,
   padding = '5px 16px',
   type,
+  form,
   onClick,
 }) => {
   let style = styles.button;
@@ -17,6 +18,8 @@ export const Button: React.FC<IButton> = ({
 
   return (
     <button
+      form={form}
+      type={type}
       disabled={disabled}
       className={style}
       style={{ padding: padding }}

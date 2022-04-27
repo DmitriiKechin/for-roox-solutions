@@ -16,6 +16,12 @@ export const UserPage: React.FC<IUserPage> = (props) => {
   };
   const { isEditUser } = useAppSelector((store) => store.userReducer);
 
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    editUser(false);
+    console.log('Отправлено:', JSON.stringify(props.userInfo));
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -30,8 +36,9 @@ export const UserPage: React.FC<IUserPage> = (props) => {
         </Button>
       </div>
 
-      <div className={styles.form}>
+      <form onSubmit={submitHandler} id="formUser" className={styles.form}>
         <Input
+          required
           disabled={!isEditUser}
           name="Name"
           value={props.userInfo.name}
@@ -40,6 +47,7 @@ export const UserPage: React.FC<IUserPage> = (props) => {
           }}
         />
         <Input
+          required
           disabled={!isEditUser}
           name="User name"
           value={props.userInfo.userName}
@@ -48,6 +56,8 @@ export const UserPage: React.FC<IUserPage> = (props) => {
           }}
         />
         <Input
+          required
+          type="email"
           disabled={!isEditUser}
           name="E-mail"
           value={props.userInfo.email}
@@ -56,6 +66,7 @@ export const UserPage: React.FC<IUserPage> = (props) => {
           }}
         />
         <Input
+          required
           disabled={!isEditUser}
           name="Street"
           value={props.userInfo.street}
@@ -64,6 +75,7 @@ export const UserPage: React.FC<IUserPage> = (props) => {
           }}
         />
         <Input
+          required
           disabled={!isEditUser}
           name="City"
           value={props.userInfo.city}
@@ -72,6 +84,7 @@ export const UserPage: React.FC<IUserPage> = (props) => {
           }}
         />
         <Input
+          required
           disabled={!isEditUser}
           name="Zip code"
           value={props.userInfo.zipCode}
@@ -80,6 +93,7 @@ export const UserPage: React.FC<IUserPage> = (props) => {
           }}
         />
         <Input
+          required
           disabled={!isEditUser}
           name="Phone"
           value={props.userInfo.phone}
@@ -88,6 +102,7 @@ export const UserPage: React.FC<IUserPage> = (props) => {
           }}
         />
         <Input
+          required
           disabled={!isEditUser}
           name="Website"
           value={props.userInfo.webSite}
@@ -104,7 +119,7 @@ export const UserPage: React.FC<IUserPage> = (props) => {
             props.changeHandler(event, 'comment', props.userInfo);
           }}
         />
-      </div>
+      </form>
       <div className={styles.buttons}>
         <Button
           onClick={() => {
@@ -115,11 +130,8 @@ export const UserPage: React.FC<IUserPage> = (props) => {
           Назад
         </Button>
         <Button
+          form="formUser"
           disabled={!isEditUser}
-          onClick={() => {
-            editUser(false);
-            console.log('Отправлено:', JSON.stringify(props.userInfo));
-          }}
           type="submit"
           padding="5px 6px 5px 15px"
         >
