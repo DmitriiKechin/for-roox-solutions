@@ -1,0 +1,10 @@
+.wrapper {
+  padding: 23.03% 13.16%;
+
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    margin-bottom: 10px;
+  }
+}
