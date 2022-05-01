@@ -5,6 +5,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+// import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+//import TerserPlugin from 'terser-webpack-plugin';
 
 const config: Configuration = {
   mode: 'production',
@@ -13,6 +15,11 @@ const config: Configuration = {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].[contenthash].js',
     publicPath: '',
+  },
+  optimization: {
+    // splitChunks: { chunks: 'all' },
+    // minimize: true,
+    // minimizer: [/*new CssMinimizerPlugin(),*/ new TerserPlugin()],
   },
   module: {
     rules: [
@@ -56,6 +63,7 @@ const config: Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+      minify: { collapseWhitespace: true },
     }),
     new ForkTsCheckerWebpackPlugin({
       async: false,

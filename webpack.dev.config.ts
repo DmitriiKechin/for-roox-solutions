@@ -18,6 +18,7 @@ const config: Configuration = {
     publicPath: '/',
   },
   entry: './src/index.tsx',
+  // optimization: { splitChunks: { chunks: 'all' } },
   module: {
     rules: [
       {
